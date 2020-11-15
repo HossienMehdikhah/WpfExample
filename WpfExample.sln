@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30709.132
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfClient", "RangiExample\WpfClient.csproj", "{8CC61DDB-5D08-4B25-8495-614F9D1A9217}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{2BDA278C-2AA2-400A-A197-B89183467A8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{AF8696B4-C435-497A-9D44-9671BE3CF3ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CC61DDB-5D08-4B25-8495-614F9D1A9217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CC61DDB-5D08-4B25-8495-614F9D1A9217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CC61DDB-5D08-4B25-8495-614F9D1A9217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CC61DDB-5D08-4B25-8495-614F9D1A9217}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BDA278C-2AA2-400A-A197-B89183467A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BDA278C-2AA2-400A-A197-B89183467A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BDA278C-2AA2-400A-A197-B89183467A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BDA278C-2AA2-400A-A197-B89183467A8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF8696B4-C435-497A-9D44-9671BE3CF3ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF8696B4-C435-497A-9D44-9671BE3CF3ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF8696B4-C435-497A-9D44-9671BE3CF3ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF8696B4-C435-497A-9D44-9671BE3CF3ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BFFE5E5-B9C3-438C-9280-D275BFC80009}
+	EndGlobalSection
+EndGlobal

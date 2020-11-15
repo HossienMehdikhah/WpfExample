@@ -1,0 +1,84 @@
+﻿<Window x:Class="WpfExample.WpfClient.DialogForm.OrderDetailCreate_DialogForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="OrderDetailCreate_DialogForm" Height="400" Width="400" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="None">
+    <Window.Resources>
+        <Style TargetType="{x:Type StatusBarItem}">
+            <Setter Property="Margin" Value="2,0,2,0"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Border BorderBrush="Black" BorderThickness="2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="30*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+            <StatusBar FlowDirection="RightToLeft" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0">
+                <StatusBarItem x:Name="Create_DetailOrder" Content="ایجاد" MouseLeftButtonUp="Create_DetailOrder_MouseLeftButtonUp"/>
+                <StatusBarItem Content="انصراف" MouseLeftButtonUp="CancelStatusBarItem_MouseLeftButtonUp"/>
+                <StatusBarItem  Visibility="Hidden"/>
+            </StatusBar>
+
+            <StackPanel Grid.Row="2" Grid.Column="1" FlowDirection="RightToLeft">
+
+                <Grid Margin="0,5,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="70*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="کالا:" Grid.Column="0"/>
+                    <ComboBox x:Name="Produce_ComboBox" Grid.Column="1"  Text="انتخاب کنید"                        
+                          Loaded="Produce_ComboBox_Loaded" SelectionChanged="Produce_ComboBox_SelectionChanged" />
+                </Grid>
+
+                <Grid Margin="0,5,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="55*"/>
+                        <ColumnDefinition Width="15*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="قیمت واحد :" Grid.Column="0"/>
+                    <TextBox x:Name="Price_TextBox" Grid.Column="1" IsEnabled="False" PreviewTextInput="Price_TextBox_PreviewTextInput" KeyUp="Price_TextBox_KeyUp"/>
+                    <Label Content="ریال" Grid.Column="2"/>
+                </Grid>
+
+                <Grid Margin="0,5,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="70*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="تعداد :" Grid.Column="0"/>
+                    <TextBox x:Name="Count_TextBox" Grid.Column="1" IsEnabled="False" PreviewTextInput="Count_TextBox_PreviewTextInput" KeyUp="Count_TextBox_KeyUp"/>
+                </Grid>
+
+                <Grid Margin="0,5,0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="70*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="جمع کل :" Grid.Column="0"/>
+                    <TextBox x:Name="SumPrice_TextBox" Grid.Column="1" IsEnabled="False" SelectionTextBrush="Black"/>
+                </Grid>
+
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

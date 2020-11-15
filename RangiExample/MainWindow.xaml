@@ -1,0 +1,88 @@
+﻿<Window x:Class="WpfExample.WpfClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type StatusBarItem}">
+            <Setter Property="Margin" Value="2,0,2,0"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="110*"/>
+        </Grid.RowDefinitions>
+
+        <StatusBar FlowDirection="RightToLeft" Grid.Row="0">
+            <StatusBarItem Content="ايجاد" MouseLeftButtonUp="CreateStatusBarItem_MouseLeftButtonUp"/>
+            <StatusBarItem Content="ويرايش" MouseLeftButtonUp="UpdateStatusBarItem_MouseLeftButtonUp"/>
+            <StatusBarItem Content="حذف" MouseLeftButtonUp="DeleteStatusBarItem_MouseLeftButtonUp"/>
+            <StatusBarItem Content="جست و جو" MouseLeftButtonUp="SerchStatusBarItem_MouseLeftButtonUp"/>
+            <StatusBarItem Content="خروج" MouseLeftButtonUp="ExiteStatusBarItem_MouseLeftButtonUp" />
+            <StatusBarItem  Visibility="Hidden"/>
+        </StatusBar>
+
+
+        <GroupBox x:Name="Serch_GroupBox" Header="جست و جو" FlowDirection="RightToLeft" Grid.Row="1" Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="70*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="نام مشتری :" Grid.Column="0"/>
+                    <ComboBox x:Name="PersonalName_ComboBox"
+                              Grid.Column="1"
+                              Loaded="Name_ComboBox_Loaded"/>
+                </Grid>
+
+                <Grid Margin="10" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="70*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="از تاریخ:" Grid.Column="0" />
+                    <DatePicker Name="StartDate_DatePicker" Grid.Column="1"/>
+                </Grid>
+
+                <Grid Margin="10" Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="70*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="تا تاریخ :" Grid.Column="0" />
+                    <DatePicker Name="EndDate_DatePicker" Grid.Column="1"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
+
+        <DataGrid x:Name="Order_DataGrid" Grid.Row="2" FlowDirection="RightToLeft"
+                  Margin="10" Loaded="Order_DataGrid_Loaded" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="شماره فاکتور" Binding="{Binding OrderID}"/>
+                <DataGridTextColumn Header="مشتری" Binding="{Binding PersonalName}"/>
+                <DataGridTextColumn Header="تاریخ" Binding="{Binding OrderDate}"/>
+                <DataGridTextColumn Header="جمع کل (ریال)" Binding="{Binding SumPrice}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
